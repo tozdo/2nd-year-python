@@ -1,0 +1,15 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Посуда</title>
+</head>
+<body>
+<h1> Это сайт про интересную посуду. </h1> Ну или не очень.
+<p>Выберите, куда хотите попасть:</p>
+<ul>
+    {% for name, url in urls.items() %}
+	<li><a href="{{ url }}">{{ name }}</a></li>
+	{% endfor %}
+</ul>
+</body>
+</html>
