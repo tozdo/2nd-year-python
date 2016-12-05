@@ -143,7 +143,12 @@ def raz_again():
     for i, m in cw4.items():
         if m > 1:  
             moon.append(i)
-    sun = set(moon) #чтобы убрать повторяющиеся слова
+    dada = Counter(moon)  #если слово в массиве несколько раз, значит оно не только в одной статье, правда?
+    wow = [] 
+    for s, h in dada.items():
+        if h == 1:
+            wow.append(s)
+    sun = set(wow) 
     life = sun & result_raz #цель задания
     f_raz2 = open('again_raz.txt', 'w', encoding = 'utf-8')
     arr_life = []
