@@ -8,7 +8,7 @@ def mystem():
 def sql():
     commands = open('/home/tozdo/commands', 'w')
     shablon_1 = 'INSERT INTO text(id, tokens, tnum) VALUES (\''
-    shablon_2 = 'INSERT INTO tokens(token, lemma) VALUES ('
+    shablon_2 = 'INSERT INTO tokens(token, lemma) VALUES (\''
     file = open('/home/tozdo/output_text', 'r')
     i = 0 #eto id
     snum = 1 #eto nomer slovoformi v texte
