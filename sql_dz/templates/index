@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SQL</title>
+</head>
+
+<body>
+<h1>Команды для базы данных. </h1>
+<p> Введите, пожалуйста, русскоязычный текст и название файла, куда вы хотите сохранить SQL-команды.</p>
+<form>
+    <label>Название файла: <input type="text" name="name"> </label><br>
+    <label>Текст: <input type="text" name="text"></label><br>
+    <input type="submit" value="Отправить">
+</form>
+</body>
+</html>
