@@ -25,31 +25,34 @@ def get_input(base):
     psays = input('Напишите мне что-нибудь: ')
     words_ar = re.findall('[А-Яа-я]+', psays)
     phrase = []
-    for word in words_ar:
-        tags = str(morph.parse(word)[0].tag).split(' ')
-        #print(tags)
-        if 'NPRO' in tags[0]:
-            phrase.append(word)
-        elif 'CONJ' in tags[0]: 
-            phrase.append(word)
-        elif 'PRCL' in tags[0]:
-            phrase.append(word)
-        elif 'PRED' in tags[0]:
-            phrase.append(word)
-        elif 'PREP' in tags[0]:
-            phrase.append(word)      
-        else:
-            if len(tags) != 1:
-                schtuks = set(tags[1].split(',')) #параметры
-                basword = morph.parse(random.choice(base[tags[0]]))[0].normal_form
-                reword = str(morph.parse(basword)[0].inflect(schtuks).word)
-                phrase.append(reword)
+    try:
+        for word in words_ar:
+            tags = str(morph.parse(word)[0].tag).split(' ')
+            #print(tags)
+            if 'NPRO' in tags[0]:
+                phrase.append(word)
+            elif 'CONJ' in tags[0]: 
+                phrase.append(word)
+            elif 'PRCL' in tags[0]:
+                phrase.append(word)
+            elif 'PRED' in tags[0]:
+                phrase.append(word)
+            elif 'PREP' in tags[0]:
+                phrase.append(word)      
             else:
-                schtuks1 = set(tags[0].split(','))
-                basword = morph.parse(random.choice(base[tags[0]]))[0].normal_form
-                reword = str(morph.parse(basword)[0].inflect(schtuks).word)
-                phrase.append(reword)          
-    str_phrase = ' '.join(phrase)
+                if len(tags) != 1:
+                    schtuks = set(tags[1].split(',')) #параметры
+                    basword = morph.parse(random.choice(base[tags[0]]))[0].normal_form
+                    reword = str(morph.parse(basword)[0].inflect(schtuks).word)
+                    phrase.append(reword)
+                else:
+                    schtuks1 = set(tags[0].split(','))
+                    basword = morph.parse(random.choice(base[tags[0]]))[0].normal_form
+                    reword = str(morph.parse(basword)[0].inflect(schtuks).word)
+                    phrase.append(reword)          
+        str_phrase = ' '.join(phrase)
+    except:
+        str_phrase = 'Что-то пошло не так. Извините. '
     return print(str_phrase)
 
 
