@@ -5,7 +5,7 @@ import random
 morph = MorphAnalyzer()
 
 def get_data():
-    with open('/home/tozdo/Рабочий стол/study/python/1grams-3.txt', 'r', encoding='utf-8') as f:
+    with open('1grams-3.txt', 'r', encoding='utf-8') as f:
         slova_ar = [line.split('\t')[1].strip('\n').lower() for line in f.readlines()[:100000]] 
     f.close()
     nforms = {}
